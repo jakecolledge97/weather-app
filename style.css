@@ -1,0 +1,6 @@
+#search-button p a.button{
+    width: 100%;
+}
+#search-field .block{
+    border-bottom: 1px grey solid;
+}

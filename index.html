@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Weather App</title>
 </head>
+
 <body>
+    <header>
+        <h1 class="title has-text-centered">Weather Dashboard</h1>
+    </header>
+    <main>
+        <div class="columns">
+            <!--Search Area-->
+            <div class="column is-one-quarter" id="search-field">
+                <div class="block p-3 m-3">
+                    <h3 class="subtitle mb-2">Search for a City:</h3>
+                    <div class="field is-grouped">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" placeholder="Find a repository">
+                        </p>
+                    </div>
+                    <div id="search-button">
+                        <p class="control is-expanded">
+                            <a class="button is-info">
+                                Search
+                            </a>
+                        </p>
+                    </div>
+                </div>    
+            </div>
+            <!--Weather Input-->
+            <div class="column is-three-quarters">
+                <div class="block">
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+    </footer>
     <script src="script.js"></script>
 </body>
+
 </html>
