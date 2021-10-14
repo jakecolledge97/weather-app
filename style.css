@@ -4,3 +4,11 @@
 #search-field .block{
     border-bottom: 1px grey solid;
 }
+#weather-details{
+    border: 1px grey solid;
+    height: 300px;
+}
+#weekly-forecast .column{
+    height: 150px;
+    background: #0284C9;
+}
