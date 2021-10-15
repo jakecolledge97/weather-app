@@ -19,20 +19,25 @@
             <!--Search Area-->
             <div class="column is-one-quarter" id="search-field">
                 <div class="block p-3 m-3">
-                    <h2 class="title is-3">Search for a City:</h2>
-                    <div class="field is-grouped">
-                        <p class="control is-expanded">
-                            <input class="input" type="text" placeholder="Find a repository">
-                        </p>
+                    <form>
+                        <div class="field">
+                            <label class="label">Enter City Here:</label>
+                            <div class="control">
+                            <input class="input" type="text" placeholder="Eg. Adelaide">
+                            </div>
+                        </div>
+                        <div class="field is-grouped">
+                            <div class="control">
+                            <button class="button is-link" id="search-city" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div> 
+                <div class="block p-3 m-3">
+                    <div class="buttons">
+                        <!--buttons for recent searches will appear here-->
                     </div>
-                    <div id="search-button">
-                        <p class="control is-expanded">
-                            <a class="button is-info">
-                                Search
-                            </a>
-                        </p>
-                    </div>
-                </div>    
+                </div>   
             </div>
             <!--Weather Input-->
             <div class="column is-three-quarters" id="weather-results">
@@ -54,6 +59,8 @@
     </main>
     <footer>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
 

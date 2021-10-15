@@ -1,8 +1,15 @@
-#search-button p a.button{
-    width: 100%;
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    background:#0284C9;
 }
-#search-field .block{
+#search-field .block:not(:last-child){
     border-bottom: 1px grey solid;
+}
+#search-field .control, #search-city{
+    width: 100%;
 }
 #weather-details{
     border: 1px grey solid;
