@@ -25,7 +25,15 @@ function getAPI(){
         })
         .then(function(data){
             console.log(data)
+            showData(data)
         })
+}
+//change details
+function showData(data){
+    $('#city').text(data.name)
+    $('#temp').text(data.main.temp)
+    $('#wind').text(data.wind.speed)
+    $('#humid').text(data.main.humidity)
 }
 
 //create recent items
