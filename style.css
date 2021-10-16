@@ -13,9 +13,13 @@ header{
 }
 #weather-details{
     border: 1px grey solid;
-    height: 300px;
+    min-height: 300px;
+    height: min-content;
 }
 #weekly-forecast .column{
-    height: 150px;
+    min-height: 150px;    
     background: #0284C9;
+}
+#forecast-info{
+    color: white;
 }
