@@ -5,6 +5,9 @@ header{
     height: 70px;
     background:#0284C9;
 }
+img{
+    max-width:45px;
+}
 #search-field .block:not(:last-child){
     border-bottom: 1px grey solid;
 }
@@ -12,7 +15,7 @@ header{
     width: 100%;
 }
 #weather-details{
-    border: 1px grey solid;
+    background: RGBA(64, 216, 230, 0.5);
     min-height: 300px;
     height: min-content;
 }
@@ -24,6 +27,15 @@ header{
 #forecast-info{
     color: white;
 }
-#no-city{
-    
+.radio + .radio{
+    margin: 0px;
+    width: 100%;
+}
+#checkbox{
+    text-align: center;
+}
+#uv{
+    width: 8%;
+    border-radius: 15px;
+    text-align: center;
 }
