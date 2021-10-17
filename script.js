@@ -22,12 +22,18 @@ $('#search-field').submit(function searchForCity(event){
     event.preventDefault()
     getAPI()
 })
-
+//not valid
+function cityNotValid(){
+    $("<div class='box' id='no-city'>City Not Found</div>").insertAfter(city)
+    return
+}
 //gets information from weather API
 function getAPI(){ 
     if(!city.val()){
+        city.css('box-shadow', '0px 0px 5px 1px red')
         return
     }
+    $('#search-field').find('.box').remove()
     const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.val()}&units=${units}&appid=${weatherApiKey}`
     
     fetch(weatherApiUrl)
@@ -39,6 +45,7 @@ function getAPI(){
             console.log(data)
             if(data.cod === "404"){
                 city.val('')
+                cityNotValid()
                 return                
             }
             showData(data)
@@ -112,6 +119,11 @@ function fiveDayStyling(data){
         }
         
     }
+    $('#recent-buttons .button').click(function searchWithButton(event){
+        var search = $(this)//.textContent
+        city.val(search.text())
+        getAPI()
+    })
 }
 
 //create recent items
