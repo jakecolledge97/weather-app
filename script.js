@@ -10,7 +10,14 @@ var unitOfMeasurement;
 //on run
 getRecentItems()
 
-//function to listen to sumit button
+//recent button click
+$('#recent-buttons .button').click(function searchWithButton(event){
+    var search = $(this)//.textContent
+    city.val(search.text())
+    getAPI()
+})
+
+//function to listen to submit button
 $('#search-field').submit(function searchForCity(event){
     event.preventDefault()
     getAPI()
