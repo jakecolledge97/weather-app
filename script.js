@@ -14,7 +14,6 @@ getRecentItems()
 $('#search-field').submit(function searchForCity(event){
     event.preventDefault()
     getAPI()
-    recentItems()
 })
 
 //gets information from weather API
@@ -31,7 +30,12 @@ function getAPI(){
         })
         .then(function(data){
             console.log(data)
+            if(data.cod === "404"){
+                city.val('')
+                return                
+            }
             showData(data)
+            recentItems()
         })
 }
 //get UVI
@@ -77,15 +81,24 @@ function showData(data){
 function fiveDayStyling(data){
     for(i=1;i<=5;i++){
         var weatherBox;
+        var unixTimestamp;
         if(i === 1){
+            unixTimestamp = data.list[0].dt
+            var date = new Date(unixTimestamp*1000)
+            var currentDate = date.getDate()+' '+date.getMonth()+ ' '+date.getFullYear()
+            
             weatherBox = $('#forecast-info div:nth-child('+i+')')
-            weatherBox.children('p:nth-child(1)').text(data.list[0].dt_txt)
+            weatherBox.children('p:nth-child(1)').text(currentDate)
             weatherBox.children('p:nth-child(2)').text('Temp: ' + data.list[0].main.temp)
             weatherBox.children('p:nth-child(3)').text('wind: ' + data.list[0].wind.speed)
             weatherBox.children('p:nth-child(4)').text('Humidity: ' +data.list[0].main.humidity)
         }else{
+            unixTimestamp = data.list[(i-1)*8].dt
+            var date = new Date(unixTimestamp*1000)
+            var currentDate = date.getDate()+' '+date.getMonth()+ ' '+date.getFullYear()
+
             weatherBox = $('#forecast-info div:nth-child('+i+')')
-            weatherBox.children('p:nth-child(1)').text(data.list[(i-1)*8].dt_txt)
+            weatherBox.children('p:nth-child(1)').text(currentDate)
             weatherBox.children('p:nth-child(2)').text('Temp: ' + data.list[(i-1)*8].main.temp)
             weatherBox.children('p:nth-child(3)').text('wind: ' + data.list[(i-1)*8].wind.speed)
             weatherBox.children('p:nth-child(4)').text('Humidity: ' +data.list[(i-1)*8].main.humidity)
@@ -98,15 +111,20 @@ function fiveDayStyling(data){
 function recentItems(){
     if(city.val()){ 
         city.css('box-shadow', 'none')
+        //capitalizes first letter of search input
         var search = city.val()
         var searchCap = capitalizeFirstLetter(search)
-        //checks if recent searches has less than 10 searches
+        
+        //checks if this is the first time searching
         if(recentSearch === null){
             recentSearch = []
         }
+
+        //checks if city has already been searched
         var alreadyAdded = 0;
+        
         for(i=0;i<recentSearch.length;i++){
-            if(city.val() === recentSearch[i]){
+            if(searchCap === recentSearch[i]){
                 alreadyAdded++
             }
         }
@@ -115,6 +133,7 @@ function recentItems(){
         }else{
             alreadyAdded = 0;
         }
+        //checks if recent searches has less than 10 searches
         if(recentSearch.length<10){
             //pushes the search input to the recent searches array
             
@@ -155,4 +174,8 @@ function getRecentItems(){
 function capitalizeFirstLetter(search){
     var capitalize = search.charAt(0).toUpperCase() + search.slice(1)
     return capitalize
+}
+
+function checkRecentArray(){
+
 }

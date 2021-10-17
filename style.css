@@ -19,6 +19,7 @@ header{
 #weekly-forecast .column{
     min-height: 150px;    
     background: #0284C9;
+    font-size: 13px;
 }
 #forecast-info{
     color: white;
