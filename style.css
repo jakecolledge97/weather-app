@@ -39,3 +39,11 @@ img{
     border-radius: 15px;
     text-align: center;
 }
+
+@media screen and (max-width: 770px){
+    #recent-buttons{
+        height: 175px;
+        overflow: scroll;
+
+    }
+}
